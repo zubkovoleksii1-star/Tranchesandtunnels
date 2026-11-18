@@ -28,14 +28,29 @@ export function terrain(){
   for(let i=0;i<22000;i++){const x=r()*W,y=r()*H;rect(x,y,r()*2.2+.4,r()+.3,r()<.5?'rgba(16,21,14,.1)':'rgba(223,214,178,.09)')}
   for(let i=0;i<2300;i++){const x=r()*W,y=land(x)+r()*8;rect(x,y,r()*5,1+r()*2,r()<.5?'#625945':'#393a2e')}
   for(const x of [65,1215]){
-    const y=land(x);poly([[x-34,y],[x-32,y-12],[x-21,y-22],[x+20,y-24],[x+35,y-13],[x+38,y]],'#414738')
-    for(let j=0;j<4;j++)for(let k=0;k<7-j;k++){const a=x-30+k*9+j*4,b=y-5-j*4;rect(a,b,9,4,'#6d6e55');rect(a+1,b,7,1,'#909078')}
-    rect(x-10,y-13,20,6,'#1d241e');rect(x-5,y-12,6,2,'#c3a76e')
+    const y=land(x),isAllied=x<W/2
+    poly([[x-49,y],[x-45,y-15],[x-34,y-23],[x-19,y-33],[x+27,y-33],[x+43,y-19],[x+49,y]],'#30392c')
+    poly([[x-35,y-7],[x-26,y-28],[x+25,y-28],[x+35,y-17],[x+37,y-7]],'#667055')
+    for(let j=0;j<4;j++)for(let k=0;k<8-j;k++){
+      const a=x-43+k*11+j*5,b=y-6-j*5
+      rect(a,b,10,5,'#697056');rect(a+1,b,8,1,'#9b9a76')
+    }
+    rect(x-16,y-20,32,10,'#292f25')
+    rect(x-13,y-17,24,3,'#cfb476')
+    rect(x-6,y-36,12,4,isAllied?'#c0d49d':'#f0a58c')
   }
   for(const x of [145,345,935,1135]){
-    const y=land(x);poly([[x-28,y-2],[x-21,y+14],[x+20,y+13],[x+27,y-2]],'#232821')
-    for(let i=-19;i<22;i+=5)rect(x+i,y+1,3,11,'#574c37')
-    for(let i=-3;i<=3;i++){rect(x+i*8,y-4,8,4,'#85806a');rect(x+i*8+1,y-4,6,1,'#a09880')}
+    const y=land(x)
+    poly([[x-42,y-3],[x-33,y+5],[x-29,y+15],[x+29,y+15],[x+34,y+5],[x+42,y-3]],'#20271e')
+    for(let i=-25;i<27;i+=6){
+      rect(x+i,y+1,3,13,'#695b42');rect(x+i+1,y+2,1,10,'#a08455')
+    }
+    rect(x-29,y+13,58,2,'#534733')
+    for(let i=-4;i<=4;i++){
+      const sandbag=x+i*8
+      rect(sandbag,y-6,8,5,'#88816a');rect(sandbag+1,y-6,6,1,'#bab096')
+    }
+    rect(x-22,y+3,44,2,'#262e24')
   }
   return c
 }
