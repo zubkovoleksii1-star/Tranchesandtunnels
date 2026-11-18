@@ -6,19 +6,16 @@ A single-player WWI strategy game with simultaneous surface combat and undergrou
 
 Use Node.js 22.12+ and npm. Run `npm install` and `npm run dev` from the project root. Open the address printed by Vite. Use `npm test` for simulation regression checks and `npm run build` for the TypeScript check and production bundle.
 
-## Command
+## Watch and draw
 
-- Select a trench by tapping its flag or earthworks. Reinforce moves your surface force to the selected allied trench. Advance and Retreat move the whole force toward the opposing HQ or your rear line.
-- Recruit infantry for mobility, machine guns for trench defense, and engineers for concurrent excavations. Each unit marker represents a squad or team.
-- Switch between the combined map, surface, and tunnels using the tabs above the battlefield. Drag the map or use the arrows to pan when zoomed.
-- In the tunnel view, select the enemy front trench, rear trench, or HQ. The map previews the route from the nearest completed passage. Check the price and estimated time, then confirm excavation. Supplies are paid upfront and the crew stays assigned until the route completes or is blocked.
-- Breaking through under a trench removes its cover for 90 seconds. A completed passage becomes a starting point for future orders, shortening the trip to the next objective. A breakthrough under the enemy HQ removes 25 points of integrity once. A contested junction can block an operation. You can retry or choose a different target.
-- Artillery suppresses units around the selected trench. Fortify protects an allied position. Reinforcements temporarily triples manpower income. These abilities cost supplies and recharge over time.
-- Keys 1–8 correspond to the command cards. Space toggles pause and Escape cancels excavation. The field manual pauses simulation while open.
-- Pressure the opposing HQ with surface troops and underground breakthroughs. After seven minutes, supply attrition increases pressure on both headquarters. Holding trenches reduces that attrition.
+Both armies run themselves. Their surface troops advance, fight and receive reinforcements. Their engineers pick their own underground objectives and dig continuously. A match runs from start to finish without player orders.
+
+- Watch the lead allied engineer or switch to the full battlefield. The narrow profile beneath the map shows tunnels and objectives. Each side’s HUD counts the targets it has connected.
+- To give allied engineers a manual route, draw a line in the soil with a mouse or finger and release. The line starts at their current position and follows the bends you draw. The simulation pauses during the gesture. The optional drawing button also pauses the battle while you plan.
+- The crew excavates the route gradually. At the final waypoint the bot takes over. You can draw a replacement, return control to the bot early, or cancel an unfinished stroke with Escape.
+- Reaching a marked zone beneath an enemy trench temporarily removes cover. Reaching the opposing HQ damages its integrity. Either side wins by connecting all three objectives underground or by destroying the opposing HQ.
+- Space pauses the match. Opening the field manual also pauses the simulation.
 
 ## Prototype scope
 
 One procedural sector layout, two armies, and a fresh AI seed per match. Discovered tunnel segments stay visible. Underground contact resolves as an abstract team contest. The game emits `underfront:report` browser events for future audio integration. Match state lasts for the current page session.
-
-The next development pass should use playtest data to tune match duration, unit costs, and the effectiveness of underground pressure.

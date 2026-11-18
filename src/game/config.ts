@@ -6,7 +6,9 @@ export const W = 1280, H = 440, GROUND = 179
 export const HQ = [65,1215]
 export const rules = {
   income:[0.72,0.48], digRate:3.8, digCost:0.18, orderCost:3,
-  guidedDig:{speed:14, baseCost:5, costPerUnit:0.04, breachSeconds:90, hqDamage:25},
+  breakthrough:{breachSeconds:90, hqDamage:25},
+  autoDig:{speed:3.35, travelSpeed:24, stride:96, incline:0.8, contactRecovery:7, targetRadius:26},
+  autoSurface:{firstRecruit:6, recruitInterval:14, maxGuns:1},
   recruits:{infantry:[14,3],gun:[23,14],engineer:[16,8]},
   powers:{reserve:[7,65,25],shell:[18,55,15],fort:[12,50,28]},
   range:{infantry:88,gun:135}, speed:{infantry:6.5,gun:4.4}
